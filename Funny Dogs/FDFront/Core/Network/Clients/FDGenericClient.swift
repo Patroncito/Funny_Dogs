@@ -14,7 +14,6 @@ final class FDGenericClient {
         self.session = session
     }
     
-    
     func request<T>(endpoint: FDEndpoint) async throws -> T where T:Decodable {
         var request = URLRequest(url: endpoint.url)
         request.httpMethod = endpoint.method.rawValue
