@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Dog : Codable {
-    let dogName : String
-    let description : String
-    let age : Int
-    let image : String
+struct Dog: Codable {
+    let dogName: String
+    let description: String
+    let age: Int
+    let image: String
 }

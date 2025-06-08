@@ -10,6 +10,6 @@ import Foundation
 struct FDSimpleEndpoint: FDEndpoint {
     var url: URL
     var method: HTTPMethod
-    var headers: [String : String]? = nil
+    var headers: [String: String]? = nil
     var body: Data? = nil
 }

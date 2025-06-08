@@ -8,21 +8,20 @@
 import SwiftUI
 
 struct FDImageLDogView: View {
-    
     var dogImageURL: URL?
-    
+
     var body: some View {
-        
         AsyncImage(url: dogImageURL?.scaledWikiaImageURL(width: 220)) { phase in
             switch phase {
             case .empty:
                 ProgressView()
                     .frame(height: 220)
-            case .success(let image):
+            case let .success(image):
                 image
                     .resizable()
-                    .scaledToFit()
-                    .frame(height: 220)
+                    .scaledToFill()
+                    .frame(width: 150, height: 220)
+                    .clipped()
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             case .failure:
                 Image(systemName: "photo")

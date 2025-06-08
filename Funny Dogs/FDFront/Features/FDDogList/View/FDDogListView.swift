@@ -15,39 +15,37 @@ struct FDDogListView: View {
     }
 
     var body: some View {
-            ScrollView {
-                LazyVStack(spacing: 20) {
-                    ForEach(viewModel.dogs, id: \.dogName) { dog in
-                        FDDogCellView(
-                            name: dog.dogName,
-                            description: dog.description,
-                            age: dog.age,
-                            image: dog.image
-                        )
-                    }
-                }
-                .padding(.horizontal, 16)
-            }
-            .navigationTitle("Dogs We Love")
-            .navigationBarTitleDisplayMode(.inline)
-            .task {
-                await viewModel.fetchDogs()
-            }
-            .overlay {
-                if viewModel.isLoading {
-                    ProgressView()
+        ScrollView {
+            LazyVStack(spacing: 20) {
+                ForEach(viewModel.dogs, id: \.dogName) { dog in
+                    FDDogCellView(
+                        name: dog.dogName,
+                        description: dog.description,
+                        age: dog.age,
+                        image: dog.image
+                    )
                 }
             }
-            .alert("Error", isPresented: Binding<Bool>(
-                get: { viewModel.errorMessage != nil },
-                set: { _ in viewModel.errorMessage = nil }
-            )) {
-                Button("OK", role: .cancel) {}
-            } message: {
-                Text(viewModel.errorMessage ?? "")
+        }
+        .navigationTitle("Dogs We Love")
+        .navigationBarTitleDisplayMode(.inline)
+        .task {
+            await viewModel.fetchDogs()
+        }
+        .overlay {
+            if viewModel.isLoading {
+                ProgressView()
             }
-            .background(.fdLightWhite)
-        
+        }
+        .alert("Error", isPresented: Binding<Bool>(
+            get: { viewModel.errorMessage != nil },
+            set: { _ in viewModel.errorMessage = nil }
+        )) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(viewModel.errorMessage ?? "")
+        }
+        .background(.fdLightWhite)
     }
 }
 
@@ -58,4 +56,3 @@ struct FDDogListView: View {
     let viewModel = FDDogListViewModel(useCase: useCase)
     FDDogListView(viewModel: viewModel)
 }
-

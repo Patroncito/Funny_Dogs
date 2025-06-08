@@ -12,18 +12,17 @@ enum FDAPIError: Error, LocalizedError {
     case httpStatusCode(Int)
     case decodingError(Error)
     case badURL
-    
+
     var errorDescription: String? {
         switch self {
         case .invalidResponse:
             return "Respuesta Invalida del Servidor"
-        case .httpStatusCode(let code):
+        case let .httpStatusCode(code):
             return "Error HTTP \(code)"
-        case .decodingError(let error):
+        case let .decodingError(error):
             return "Error al decodificar \(error.localizedDescription)"
         case .badURL:
             return "La URL tiene un problema"
         }
     }
-    
 }
