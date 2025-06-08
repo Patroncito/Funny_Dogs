@@ -13,7 +13,7 @@ class FDGetDogsUseCase {
         self.repository = repository
     }
 
-    func getDogs() async throws -> [Dog] {
+    func getDogs() async throws -> [FDDogViewModel] {
         return try await repository.fetchDogs()
     }
 }

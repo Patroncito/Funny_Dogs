@@ -8,10 +8,16 @@
 import Foundation
 
 struct FDDogViewModel: Identifiable {
-    let id = UUID()
+    let id: String
     let dog: Dog
+    
     var dogName: String { dog.dogName }
     var description: String { dog.description }
     var age: Int { dog.age }
     var image: String { dog.image }
+    
+    init(id: String = UUID().uuidString, dog: Dog) {
+        self.id = id
+        self.dog = dog
+    }
 }

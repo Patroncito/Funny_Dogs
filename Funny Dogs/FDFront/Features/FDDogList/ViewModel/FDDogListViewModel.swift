@@ -21,24 +21,23 @@ class FDDogListViewModel: ObservableObject {
 
     func fetchDogs() async {
         await MainActor.run {
+            guard !isLoading else { return }
             isLoading = true
             errorMessage = nil
         }
 
         do {
             let result = try await useCase.getDogs()
-            let dogResponseModels = result.map { FDDogViewModel(dog: $0) }
             await MainActor.run {
-                dogs = dogResponseModels
+                dogs = result
+                isLoading = false
+                errorMessage = nil
             }
         } catch {
             await MainActor.run {
                 errorMessage = error.localizedDescription
+                isLoading = false
             }
-        }
-
-        await MainActor.run {
-            isLoading = false
         }
     }
 }
