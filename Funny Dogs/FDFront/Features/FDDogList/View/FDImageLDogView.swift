@@ -20,7 +20,7 @@ struct FDImageLDogView: View {
                 image
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 150, height: 220)
+                    .frame(width: 150, height: 232)
                     .clipped()
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             case .failure:

@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 class FDDogListViewModel: ObservableObject {
-    @Published var dogs: [Dog] = []
+    @Published var dogs: [FDDogViewModel] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
 
@@ -27,8 +27,9 @@ class FDDogListViewModel: ObservableObject {
 
         do {
             let result = try await useCase.getDogs()
+            let dogResponseModels = result.map { FDDogViewModel(dog: $0) }
             await MainActor.run {
-                dogs = result
+                dogs = dogResponseModels
             }
         } catch {
             await MainActor.run {

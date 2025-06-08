@@ -15,9 +15,9 @@ struct FDDogListView: View {
     }
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 20) {
-                ForEach(viewModel.dogs, id: \.dogName) { dog in
+                ForEach(viewModel.dogs) { dog in
                     FDDogCellView(
                         name: dog.dogName,
                         description: dog.description,
@@ -27,6 +27,7 @@ struct FDDogListView: View {
                 }
             }
         }
+        .padding(.top, 12)
         .navigationTitle("Dogs We Love")
         .navigationBarTitleDisplayMode(.inline)
         .task {

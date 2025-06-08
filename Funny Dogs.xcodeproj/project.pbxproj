@@ -10,22 +10,9 @@
 		CE95A8BF2DF4151100078E93 /* Funny Dogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Funny Dogs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		CEC728372DF516B30029AF62 /* Exceptions for "Funny Dogs" folder in "Funny Dogs" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Funny-Dogs-Info.plist",
-			);
-			target = CE95A8BE2DF4151100078E93 /* Funny Dogs */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CE95A8C12DF4151100078E93 /* Funny Dogs */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				CEC728372DF516B30029AF62 /* Exceptions for "Funny Dogs" folder in "Funny Dogs" target */,
-			);
 			path = "Funny Dogs";
 			sourceTree = "<group>";
 		};
