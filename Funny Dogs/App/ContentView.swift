@@ -19,27 +19,19 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 40) {
-                Text("¡Bienvenido a Funny Dogs!")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .padding()
-
-                Button("Continuar") {
+            ZStack {
+                FDWelcomeView {
                     navigateToList = true
                 }
-                .buttonStyle(.borderedProminent)
-                .font(.title2)
 
                 NavigationLink(
                     destination: FDDogListView(viewModel: viewModel),
                     isActive: $navigateToList,
-                    label: { EmptyView() }
+                    label: {
+                        EmptyView()
+                    }
                 )
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(.systemGroupedBackground))
         }
     }
 }
