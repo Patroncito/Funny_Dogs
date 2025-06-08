@@ -7,10 +7,6 @@
 
 import Foundation
 
-
-struct DogResponse : Codable {
-    let dogsListResponse : [Dog]
-}
 struct Dog : Codable {
     let dogName : String
     let description : String
