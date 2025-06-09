@@ -7,30 +7,38 @@
 ## 📱 Capturas de pantalla
 
 <p float="left">
-  <img src=""![image1](https://github.com/user-attachments/assets/f6f54faf-110d-4387-86d5-583ad9ce672d)
- width="200" />
-  <img src="screenshots/detail.png" width="200" />
+  <img src="https://github.com/user-attachments/assets/f6f54faf-110d-4387-86d5-583ad9ce672d" width="200" />
+  <img src="https://github.com/user-attachments/assets/3c751b3b-4c5a-4f2d-a2d1-9458c8086d1d" width="200" />
 </p>
--->
 
 ---
 
 ## 🚀 Funcionalidades
 
 - Listado de perros con nombre, descripción, edad e imagen.
-- Carga de datos desde un caso de uso (use case).
+- Carga de datos desde un caso de uso (Use Case).
 - Persistencia local con SQLite.swift.
 - Arquitectura desacoplada y probada.
 - Manejo de errores con mensajes amigables.
+
 ---
 
 ## 🧱 Arquitectura
 
 La app sigue una arquitectura modularizada:
 
-- **Vista**: SwiftUI (
-- **ViewModel**: 
-- **UseCase**: 
-- **Modelo**: 
-- **Persistencia**:  (usando SQLite.swift)
+- **Vista**: SwiftUI (`FDDogListView`, `FDDogCellView`)
+- **ViewModel**: `FDDogListViewModel`
+- **UseCase**: `FDGetDogsUseCase`
+- **Modelo**: `FDDogViewModel`
+- **Persistencia**: `FDDatabase` (usando SQLite.swift)
+
 ---
+
+## 🔧 Cómo clonar y correr el proyecto
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/patroncito/funny-dogs.git
+cd funny-dogs
